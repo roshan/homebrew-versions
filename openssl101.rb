@@ -5,12 +5,6 @@ class Openssl101 < Formula
   mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.1p.tar.gz"
   sha256 "bd5ee6803165c0fb60bbecbacacf244f1f90d2aa0d71353af610c29121e9b2f1"
 
-  bottle do
-    sha256 "0713e1db2896db21b0893c12dc156e89d6c25bcec781538d28793d74c94caee8" => :yosemite
-    sha256 "6ea2af202387d576e9c9993290ae3ef93bc2fe04020ee0b45836572a5c7c9ca0" => :mavericks
-    sha256 "4439ad983ecc79547d8cd2289042e3aa7c2ba5d728e44f43632364042452ffe7" => :mountain_lion
-  end
-
   option :universal
   option "without-check", "Skip build-time tests (not recommended)"
 
@@ -29,8 +23,6 @@ class Openssl101 < Formula
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
-    no-ssl2
-    no-ssl3
     zlib-dynamic
     shared
     enable-cms
